@@ -18,4 +18,8 @@ SIGN:1 o SIGN:2
   Proceso Reader:
   Este proceso leerá los datos del named fifo y según el encabezado “DATA” o “SIGN” escribirá en el
   archivo log.txt o signals.txt.
+    
+  # Arquitectura del sistema:
+  
+  ![](/img/arqu_sistema.png)
 
