@@ -1,0 +1,7 @@
+DATA:Hola Mundo
+DATA:Estoy escribiendo
+DATA:por
+DATA:la
+DATA:pantalla
+DATA:Bueno, buen finde.
+
