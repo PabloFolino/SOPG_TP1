@@ -11,8 +11,8 @@ Comunicar dos procesos por medio de un named fifo. El proceso Writer podrá reci
     ENTER. En ese momento escribirá en una named fifo los datos con el siguiente formato:
     
                                DATA:XXXXXXXXX
-    
-    En cualquier momento el proceso podrá recibir las signals SIGUSR1 y SIGUSR2. En dicho caso deberá escribir en el named fifo el siguiente mensaje:
+   
+   En cualquier momento el proceso podrá recibir las signals SIGUSR1 y SIGUSR2. En dicho caso deberá escribir en el named fifo el siguiente mensaje:
 SIGN:1 o SIGN:2
 
   Proceso Reader:
