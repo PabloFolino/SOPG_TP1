@@ -14,6 +14,7 @@
 #define MSG_DATA 	"DATA:"
 #define MSG1 		"SIGN:1"
 #define MSG2 		"SIGN:2"
+#define SIZE_MSG 	6
 #define BUFFER_SIZE 300
 
 // Variables globales
@@ -27,7 +28,7 @@ int32_t returnCode, fd;
 void Signal_receive(int signal)
 {
     
-    printf("Capturo las señales...\n");
+    write(1,"Capturo las señales...\n",23);
    
     if (signal==SIGUSR1)
     {
@@ -40,7 +41,7 @@ void Signal_receive(int signal)
     }
 
     /* Escribo en el buffer de la cola nombrada. Strlen - 1 to avoid sending \n char */  
-    if ((bytesWrote = write(fd, outputBuffer, strlen(outputBuffer))) == -1)
+    if ((bytesWrote = write(fd, outputBuffer, SIZE_MSG)) == -1)
     {
     	perror("write");
     }
@@ -87,8 +88,15 @@ int main(void)
        sa.sa_handler = Signal_receive;
        sa.sa_flags = SA_RESTART; //SA_RESTART;
        sigemptyset(&sa.sa_mask);
-       sigaction(SIGUSR1,&sa,NULL);
-       sigaction(SIGUSR2,&sa,NULL);
+       if(sigaction(SIGUSR1,&sa,NULL)==-1){
+		perror("Error de sigaction: SIGUSR1");
+        	exit(1);
+        }
+       if(sigaction(SIGUSR2,&sa,NULL)==-1){
+		perror("Error de sigaction: SIGUSR2");
+        	exit(1);
+        }
+
 
 
     /* Loop forever */

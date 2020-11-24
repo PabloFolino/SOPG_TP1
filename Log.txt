@@ -4,4 +4,6 @@ DATA:por
 DATA:la
 DATA:pantalla
 DATA:Bueno, buen finde.
-
+DATA:hola
+DATA:como
+DATA:vai?
